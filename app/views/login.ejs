@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Beleaf - Login</title>   
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/signin.css"/>
+    <link rel="stylesheet" href="css/beleaf.css"/>
+
+  </head>
+
+  <body class="text-center">
+    <div class="card card-login">
+        <div class="card-body">
+            <form class="form-signin" action="/login" method="POST">
+                <img class="mb-4" src="img/favicon.webp" alt="" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">Efetue o login</h1>
+                <% if (erros.length > 0) {%>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Atenção</strong>
+                        <ul>
+                            <% for (var i=0; i < erros.length; i++) { %>
+                                <li><%= erros[i].msg %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% }%>
+                <label for="inputEmail" class="sr-only">Usuário</label>
+                <input type="text" id="login" name="login" class="form-control" placeholder="Usuário" autofocus>
+                <label for="inputPassword" class="sr-only">Senha</label>
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
+                <!-- <div class="checkbox mb-3">
+                    <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div> -->
+                <button class="btn btn-outline-warning btn-block" type="submit">Entrar</button>
+                <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p> -->
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
