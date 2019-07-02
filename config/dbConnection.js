@@ -8,7 +8,7 @@ var connMysql = function(){
         // database: 'heroku_1bcba7123abcd1f'
         host: 'localhost',
         user: 'root',
-        password: 'aapvr',
+        password: 'Tb19851811',
         database: 'beleaf'
     });
 }

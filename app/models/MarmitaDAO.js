@@ -21,7 +21,20 @@ MarmitasDAO.prototype.salvarMarmita = function(marmita, callback) {
 }
 
 MarmitasDAO.prototype.atualizarMarmita = function(marmita, callback) {
-    this._connection.query('update marmita set ?', marmita, callback);
+    var sql = 'update marmita set '+
+        'nome = ?, descricao = ?, preco = ?, lista_ingredientes = ?, quantidade = ?, '+
+        'url_imagem = ?, porcentagem_desconto = ? where id = ?';
+    var dados = [
+        marmita.nome,
+        marmita.descricao,
+        marmita.preco,
+        marmita.lista_ingredientes,
+        marmita.quantidade,
+        marmita.url_imagem,
+        marmita.porcentagem_desconto,
+        marmita.id
+    ]
+    this._connection.query(sql, dados, callback);
 }
 
 module.exports = function(){   

@@ -10,7 +10,6 @@ $(document).ready(function(){
     $('.dinheiro').mask("#.##0,00", {reverse: true});
 
     $("#formulario").submit(function() {
-
         $('.telefone').unmask();
         $('.celular').unmask();
         $('.cpf').unmask();
