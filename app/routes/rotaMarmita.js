@@ -3,15 +3,27 @@ module.exports = function(application){
     const { check, validationResult } = require('express-validator');
 
     application.get('/marmita/novo',function(req,res){
-        application.app.controllers.controladorMarmita.cadastrarMarmita(application, req, res);
+        if(req.session.autorizado == true) {
+            application.app.controllers.controladorMarmita.cadastrarMarmita(application, req, res);
+        } else {
+            return res.redirect('/login');
+        }
     });
 
     application.get('/marmita/editar',function(req,res){
-        application.app.controllers.controladorMarmita.editarMarmita(application, req, res);
+        if(req.session.autorizado == true) {
+            application.app.controllers.controladorMarmita.editarMarmita(application, req, res);
+        } else {
+            return res.redirect('/login');
+        }
     });
 
     application.get('/marmita/excluir',function(req,res){
-        application.app.controllers.controladorMarmita.excluirMarmita(application, req, res);
+        if(req.session.autorizado == true) {
+            application.app.controllers.controladorMarmita.excluirMarmita(application, req, res);
+        } else {
+            return res.redirect('/login');
+        }
     });
 
     application.post('/marmita/novo',[

@@ -32,15 +32,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/marmitas">Marmitas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/sair">Sair</a>
-                </li>
+                <% if(autorizado == true) {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
+                    </li>
+                <% } %>
+                <% if(autorizado != true) {%>
+                    <li>
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                <% } %>
+                <% if(autorizado == true) {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sair"><%= usuario %> clique para sair</a>
+                    </li>
+                <% } %>
             </ul>
         </div>
     </nav>
@@ -62,16 +68,19 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="h4" for="preco" style="font-size:1.5vw">Preço</label>
-                                    <input class="form-control dinheiro" value="<%= marmitas[0].preco%>" disabled>
+                                    <input class="form-control dinheiro" value="<%= marmitas[0].preco.toFixed(2)%>" disabled>
                                     <br>
                                     <label class="h4" for="preco_desconto" style="font-size:1.5vw">Preço com desconto</label>
-                                    <input class="form-control dinheiro" value="<%= marmitas[0].preco_desconto %>" disabled>
+                                    <input class="form-control dinheiro" value="<%= marmitas[0].preco_desconto.toFixed(2) %>" disabled>
                                     <br>
 
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <a href="#" class="btn btn-primary"><img></a>
-                                </div>
+                                <% if(autorizado == true) {%>
+                                    <div class="form-group col-md-3">
+                                        <a href="/marmita/editar?id=<%= marmitas[0].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Editar Marmita"><img src="/img/edit_3.png"></a>
+                                        <a href="/marmita/excluir?id=<%= marmitas[0].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Excluir Marmita"><img src="/img/delete.png"></a>
+                                    </div>
+                                <%}%>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">

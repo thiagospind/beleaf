@@ -16,11 +16,17 @@ app.use(expressSession({
     saveUninitialized: false
 }));
 
+app.use(function(req, res, next) {
+    res.locals.usuario = req.session.usuario;
+    res.locals.autorizado = req.session.autorizado;
+    next();
+});
+
 consign({cwd: process.cwd()})
 .include('app/routes')
 .then('config/dbConnection.js')
-.then('app/models')
 .then('app/controllers')
+.then('app/models')
 .into(app);
 
 module.exports = app;

@@ -33,15 +33,21 @@
               <li class="nav-item">
                   <a class="nav-link" href="/marmitas">Marmitas</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
-              </li>
-              <li>
-                  <a class="nav-link" href="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/sair">Sair</a>
-              </li>
+              <% if(autorizado == true) {%>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
+                  </li>
+              <% } %>
+              <% if(autorizado != true) {%>
+                  <li>
+                      <a class="nav-link" href="/login">Login</a>
+                  </li>
+              <% } %>
+              <% if(autorizado == true) {%>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/sair"><%= usuario %> clique para sair</a>
+                  </li>
+              <% } %>
           </ul>
       </div>
     </nav>

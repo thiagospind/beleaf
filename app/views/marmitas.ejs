@@ -35,16 +35,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/marmitas">Marmitas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
-                </li>
+                <% if(autorizado == true) {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
+                    </li>
+                <% } %>
+                <% if(autorizado != true) {%>
                 <li>
                     <a class="nav-link" href="/login">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/sair">Sair</a>
-                </li>
-
+                <% } %>
+                <% if(autorizado == true) {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sair"><%= usuario %> clique para sair</a>
+                    </li>
+                <% } %>
             </ul>
         </div>
     </nav>
@@ -78,10 +83,12 @@
                                         <label class="h4" for="preco_desconto" style="font-size:2vw">Preço com desconto</label>
                                         <input class="form-control dinheiro" value="<%= marmitas[i].preco_desconto.toFixed(2) %>" disabled>
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <a href="/marmita/editar?id=<%= marmitas[i].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Editar Marmita"><img src="/img/edit_3.png"></a>
-                                        <a href="/marmita/excluir?id=<%= marmitas[i].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Excluir Marmita"><img src="/img/delete.png"></a>
-                                    </div>
+                                    <% if(autorizado == true) {%>
+                                        <div class="form-group col-md-3">
+                                            <a href="/marmita/editar?id=<%= marmitas[i].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Editar Marmita"><img src="/img/edit_3.png"></a>
+                                            <a href="/marmita/excluir?id=<%= marmitas[i].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Excluir Marmita"><img src="/img/delete.png"></a>
+                                        </div>
+                                    <%}%>
                                 </div>
                             </div>
                         </div>
