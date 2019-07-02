@@ -2,7 +2,8 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.webp" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -28,15 +29,20 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/marmitas">Marmitas</a>
-          </li>         
-        </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="/marmitas">Marmitas</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
+              </li>
+              <li>
+                  <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/sair">Sair</a>
+              </li>
+          </ul>
       </div>
     </nav>
     <div class="container mt-03 pt-3">
@@ -55,34 +61,45 @@
                     </div>
                 <% }%>
                 <form action="/marmita/editar" method="POST" id="formulario">
-                    <input name="id" id="id" value="<%= marmita[0].id == '' ? marmita.id : marmita[0].id %>" hidden>
+                    <input name="id" id="id" value="<%= typeof marmita.id != 'undefined' ? marmita.id : marmita[0].id %>" hidden>
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input class="form-control" type="text" value="<%= marmita[0].nome %>" id="nome" name="nome" placeholder="Nome da marmita">
+                        <input class="form-control" type="text"
+                               value="<%= typeof marmita.nome != 'undefined' ? marmita.nome : marmita[0].nome %>" id="nome" name="nome" placeholder="Nome da marmita">
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição</label>
-                        <textarea class="form-control" type="text" id="descricao" name="descricao" placeholder="Descrição da marmita" rows="5"><%= marmita[0].descricao %></textarea>
+                        <textarea class="form-control"
+                                  type="text" id="descricao" name="descricao" placeholder="Descrição da marmita" rows="5"><%= typeof marmita.nome != 'undefined' ? marmita.nome : marmita[0].nome %></textarea>
                     </div>
                     <div class="form-group">
                         <label for="preco">Preço</label>
-                        <input class="form-control dinheiro" type="text" value="<%= marmita[0].preco.toFixed(2)%>" id="preco" name="preco" placeholder="Preço da marmita">
+                        <input class="form-control dinheiro" type="text"
+                               value="<%= typeof marmita.preco != 'undefined' ? marmita.preco : marmita[0].preco.toFixed(2) %>"
+                               id="preco" name="preco" placeholder="Preço da marmita">
                     </div>                    
                     <div class="form-group">
                         <label for="lista_ingredientes">Ingredientes</label>                        
-                        <textarea class="form-control" type="text" id="lista_ingredientes" name="lista_ingredientes" placeholder="Lista de Ingredientes" rows="5"><%= marmita[0].lista_ingredientes %></textarea>
+                        <textarea class="form-control"
+                                  type="text" id="lista_ingredientes" name="lista_ingredientes" placeholder="Lista de Ingredientes" rows="5"><%= typeof marmita.lista_ingredientes != 'undefined' ? marmita.lista_ingredientes : marmita[0].lista_ingredientes %></textarea>
                     </div>
                     <div class="form-group">
                         <label for="quantidade">Quantidade</label>
-                        <input class="form-control" type="number" value="<%= marmita[0].quantidade %>" id="quantidade" name="quantidade" placeholder="Quantidade em estoque">
+                        <input class="form-control" type="number"
+                               value="<%= typeof marmita.quantidade != 'undefined' ? marmita.quantidade : marmita[0].quantidade %>"
+                               id="quantidade" name="quantidade" placeholder="Quantidade em estoque">
                     </div>
                     <div class="form-group">
                         <label for="url_imagem">URL Imagem</label>
-                        <input class="form-control" type="" value="<%= marmita[0].url_imagem %>" id="url_imagem" name="url_imagem" placeholder="URL da imagem">
+                        <input class="form-control" type=""
+                               value="<%= typeof marmita.url_imagem != 'undefined' ? marmita.url_imagem : marmita[0].url_imagem %>"
+                               id="url_imagem" name="url_imagem" placeholder="URL da imagem">
                     </div>
                     <div class="form-group">
                         <label for="porcentagem_desconto">Desconto</label>
-                        <input class="form-control" type="number" value="<%= marmita[0].porcentagem_desconto %>" id="porcentagem_desconto" name="porcentagem_desconto" placeholder="Percentual de desconto">
+                        <input class="form-control" type="number"
+                               value="<%= typeof marmita.porcentagem_desconto != 'undefined' ? marmita.porcentagem_desconto : marmita[0].porcentagem_desconto %>"
+                               id="porcentagem_desconto" name="porcentagem_desconto" placeholder="Percentual de desconto">
                     </div>
                     <button type="submit" class="btn btn-primary" id="btnCadastrar">Atualizar</button>
                 </form>

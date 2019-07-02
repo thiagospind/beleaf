@@ -5,6 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Beleaf - Listagem de Marmitas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="/img/favicon.webp" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <!--    <script src="/js/jquery-3.4.1.js"/>-->
@@ -12,6 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/jquery.mask.js"></script>
     <script src="js/mask.js"></script>
+    <script src="js/script.js"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,19 +32,32 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a
-                >
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/marmitas">Marmitas</a>
-            </li>         
+                <li class="nav-item">
+                    <a class="nav-link" href="/marmitas">Marmitas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/marmita/novo">Cadastrar Marmita</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sair">Sair</a>
+                </li>
+
             </ul>
         </div>
     </nav>
     <div class="container mt-3 pt-3">
         <div class="card">
             <p class="h2 text-center">Marmitas</p>
+            <hr>
+            <nav class="nav">
+                <a class="nav-link" href="/marmitas?ordem=nome" data-toggle="tooltip" data-placement="top" title="Ordenar por nome">Nome</a>
+                <a class="nav-link" href="/marmitas?ordem=preco" data-toggle="tooltip" data-placement="top" title="ordenar por preço">Preço</a>
+                <a class="nav-link" href="/marmitas?ordem=preco_desconto" data-toggle="tooltip" data-placement="top" title="Ordenar por preço com desconto">Preço com Desconto</a>
+            </nav>
+            <hr>
             <div class="card-body">
                 <div class="list-group">
                     <% if (marmitas){
@@ -63,8 +79,8 @@
                                         <input class="form-control dinheiro" value="<%= marmitas[i].preco_desconto.toFixed(2) %>" disabled>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <a href="/marmita/editar?id=<%= marmitas[i].id %>" class="btn btn-outline-warning"><img src="/img/edit_3.png"></a>
-                                        <a href="/marmita/excluir?id=<%= marmitas[i].id %>" class="btn btn-outline-warning"><img src="/img/delete.png"></a>
+                                        <a href="/marmita/editar?id=<%= marmitas[i].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Editar Marmita"><img src="/img/edit_3.png"></a>
+                                        <a href="/marmita/excluir?id=<%= marmitas[i].id %>" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Excluir Marmita"><img src="/img/delete.png"></a>
                                     </div>
                                 </div>
                             </div>

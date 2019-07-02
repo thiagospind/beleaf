@@ -10,6 +10,10 @@ module.exports = function(application){
         application.app.controllers.controladorMarmita.editarMarmita(application, req, res);
     });
 
+    application.get('/marmita/excluir',function(req,res){
+        application.app.controllers.controladorMarmita.excluirMarmita(application, req, res);
+    });
+
     application.post('/marmita/novo',[
             check('nome','O nome da marmita não pode ser nula!').not().isEmpty(),
             check('nome','A quantidade de caracteres do nome deve ser entre 5 e 255 caracteres!').isLength({min: 5, max:255}),
@@ -44,7 +48,8 @@ module.exports = function(application){
         const errors = validationResult(req);
         var marmita = req.body;
         if(!errors.isEmpty()){
-            return res.render('editarMarmita',{ erros: errors.array(), marmita: marmita });
+            res.render('editarMarmita',{ erros: errors.array(), marmita: marmita });
+            return;
         }
         application.app.controllers.controladorMarmita.atualizarMarmita(application,req,res);
     });

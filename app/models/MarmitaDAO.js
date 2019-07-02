@@ -2,10 +2,14 @@ function MarmitasDAO(connection){
     this._connection = connection;
 }
 
-MarmitasDAO.prototype.getMarmitas = function(callback) {
+MarmitasDAO.prototype.getMarmitas = function(query, callback) {
+    var ordem = query.ordem;
     var sql = 'select id, nome, descricao, round(preco,2) as preco, lista_ingredientes, quantidade, '+
               'url_imagem, porcentagem_desconto, round(preco*((100-porcentagem_desconto)/100),2) as preco_desconto '+
               'from marmita where quantidade > 0';
+    if (typeof ordem != 'undefined'){
+        sql += ' order by '+ordem;
+    }
     this._connection.query(sql, callback);
 }    
 
@@ -37,7 +41,11 @@ MarmitasDAO.prototype.atualizarMarmita = function(marmita, callback) {
     this._connection.query(sql, dados, callback);
 }
 
-module.exports = function(){   
+MarmitasDAO.prototype.excluirMarmita = function(marmita, callback) {
+    var sql = 'delete from marmita where id = ?';
+    this._connection.query(sql, marmita.id, callback);
+}
 
+module.exports = function(){
     return MarmitasDAO;
 }

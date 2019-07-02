@@ -17,4 +17,8 @@ module.exports = function(application){
         }
         application.app.controllers.controladorLogin.autenticar(application, req, res);
     });
+
+    application.get('/sair', function(req, res) {
+        application.app.controllers.controladorLogin.logout(application, req, res);
+    });
 }

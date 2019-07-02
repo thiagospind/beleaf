@@ -41,10 +41,24 @@ module.exports.editarMarmita = function (application,req, res) {
     var marmitaModel = new application.app.models.MarmitaDAO(connection);
 
     marmitaModel.getMarmita(query,function(error, result){
-        var aux = result;
-        console.log(aux);
         if(!error) {
-            res.render("editarMarmita", {marmita: result, erros: {}});
+            return res.render("editarMarmita", {marmita: result, erros: {}});
+        } else {
+            console.log(error);
+        }
+    });
+}
+
+module.exports.excluirMarmita = function (application,req, res) {
+
+    var query = req.query;
+
+    var connection = application.config.dbConnection();
+    var marmitaModel = new application.app.models.MarmitaDAO(connection);
+
+    marmitaModel.excluirMarmita(query,function(error, result){
+        if(!error) {
+            return res.redirect('/marmitas');
         } else {
             console.log(error);
         }
@@ -54,8 +68,8 @@ module.exports.editarMarmita = function (application,req, res) {
 module.exports.mostraMarmitas = function (application, req, res) {
     var connection = application.config.dbConnection();
     var marmitasModel = new application.app.models.MarmitaDAO(connection);
-
-    marmitasModel.getMarmitas(function(error, result){
+    var query = req.query;
+    marmitasModel.getMarmitas(query,function(error, result){
         res.render("marmitas", {marmitas: result});
     });
 }
