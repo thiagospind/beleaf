@@ -2,19 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67dc69fe-51e9-4984-bcbc-caa511e52dad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/controladorLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/controladorLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/controladorMarmita.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/controladorMarmita.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/MarmitaDAO.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MarmitaDAO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/rotaLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/rotaLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/rotaMarmita.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/rotaMarmita.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/cadastrarMarmita.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cadastrarMarmita.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/editarMarmita.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/editarMarmita.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/login.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/marmita.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/marmita.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/marmitas.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/marmitas.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/dbConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConnection.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -55,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/dbConnection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -73,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/MarmitaDAO.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -143,7 +130,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/public/js/mask.js" />
-        <option value="$PROJECT_DIR$/config/dbConnection.js" />
         <option value="$PROJECT_DIR$/app/routes/rotaLogin.js" />
         <option value="$PROJECT_DIR$/app/controllers/controladorMarmita.js" />
         <option value="$PROJECT_DIR$/app/routes/rotaMarmita.js" />
@@ -155,6 +141,7 @@
         <option value="$PROJECT_DIR$/app/views/login.ejs" />
         <option value="$PROJECT_DIR$/app/controllers/controladorLogin.js" />
         <option value="$PROJECT_DIR$/app/models/MarmitaDAO.js" />
+        <option value="$PROJECT_DIR$/config/dbConnection.js" />
       </list>
     </option>
   </component>
@@ -252,7 +239,7 @@
       <workItem from="1561843826786" duration="5678000" />
       <workItem from="1561908723463" duration="10828000" />
       <workItem from="1561982062354" duration="27534000" />
-      <workItem from="1562066372898" duration="7880000" />
+      <workItem from="1562066372898" duration="8463000" />
     </task>
     <task id="LOCAL-00001" summary="Beleaf">
       <created>1561951119646</created>
@@ -265,7 +252,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59947000" />
+    <option name="totallyTimeSpent" value="60530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -418,6 +405,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/MarmitaDAO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/UsuarioDAO.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/controladorLogin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -427,18 +424,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/dbConnection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/UsuarioDAO.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/MarmitaDAO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
